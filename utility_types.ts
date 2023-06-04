@@ -86,8 +86,11 @@ const myFunction = (color: Color, age: number): void => {
   console.log('color :', color)
 }
 
-// get type of function's params ---> as array
+// get type of function's params ---> as tuple ==> [string, number] 
 
 type paramsType = Parameters<typeof myFunction>
+
+// Creates a tuple [ string, number]
+type T1 = Parameters<(p1: string, p2: number) => void>;
 
 // ==================================================================
