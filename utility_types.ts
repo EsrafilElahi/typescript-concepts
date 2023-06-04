@@ -68,13 +68,31 @@ type Excluded = Exclude<string | number, string>;
 
 // ==================================================================
 
-type Extracted = Extract<string | number, string>;
+// Extract<Type, Union>
+// The extract utility type lets you extract all declared keys inside Union from Type
+type ExType = 'messi' | 'ronaldo' | 'neymar' | 'mbappe' | 'maguire'
 
-// string
+type Extracted1 = Extract<ExType, 'messi'>;
+type Extracted2 = Extract<ExType, 'messi' | 'ronaldo'>;
+
+// messi
+// messi | ronaldo
 
 // ==================================================================
 
-type NonNull = NonNullable<string | number | void>;
+// Exclude<Type, Union>
+// The Exclude utility type lets you exclude all declared keys inside Union from Type
+type ExcType = 'messi' | 'ronaldo' | 'neymar' | 'mbappe' | 'maguire'
+
+type Exctracted1 = Exclude<ExcType, 'messi'>;
+type Exctracted2 = Exclude<ExcType, 'messi' | 'ronaldo'>;
+
+// 'ronaldo' | 'neymar' | 'mbappe' | 'maguire'
+// 'neymar' | 'mbappe' | 'maguire'
+
+// ==================================================================
+
+type NonNull = NonNullable<string | number | void | null | undefined>;
 
 // string | number
 
@@ -92,5 +110,11 @@ type paramsType = Parameters<typeof myFunction>
 
 // Creates a tuple [ string, number]
 type T1 = Parameters<(p1: string, p2: number) => void>;
+
+// ==================================================================
+
+type T2 = ReturnType<() => string>;
+
+// string
 
 // ==================================================================
