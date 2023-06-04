@@ -80,5 +80,14 @@ type NonNull = NonNullable<string | number | void>;
 
 // ==================================================================
 
+type Color = "WHITE" | "BLACK";
+
+const myFunction = (color: Color, age: number): void => {
+  console.log('color :', color)
+}
+
+// get type of function's params ---> as array
+
+type paramsType = Parameters<typeof myFunction>
 
 // ==================================================================
